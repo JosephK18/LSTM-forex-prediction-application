@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>High and Low Prices Prediction</title>
+  </head>
+  <body>
+    <h1>High and Low Prices Prediction Results</h1>
+    {% if high_price and low_price %}
+      <p>For the selected date and time, the predicted high price is {{ high_price }} and the predicted low price is {{ low_price }}.</p>
+    {% else %}
+      <p>No results to display yet. Please select a date and time and submit the form.</p>
+    {% endif %}
+    <form action="{{ url_for('predict_high_low_prices') }}" method="post">
+      <label for="date_time">Select a date and time:</label>
+      <input type="date" name="date_time" required>
+      <br><br>
+      <input type="submit" value="Predict">
+    </form>
+  </body>
+</html>
+
